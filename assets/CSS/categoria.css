@@ -1,0 +1,284 @@
+/* Estilos para el contenedor de cada tarjeta de categoría */
+.category-card {
+    border: 1px solid #ddd; /* Borde ligero */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    margin: 10px; /* Espaciado externo */
+    width: 200px; /* Ancho fijo, puedes ajustarlo */
+    text-align: center; /* Centrar el contenido */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil */
+    background-color: #fff; /* Fondo blanco */
+    display: flex; /* Usar flexbox para alinear elementos */
+    flex-direction: column; /* Apilar elementos verticalmente */
+    align-items: center; /* Centrar elementos horizontalmente */
+    justify-content: space-between; /* Distribuir espacio */
+}
+
+/* Estilos para la imagen de la categoría */
+.category-card img {
+    max-width: 100%; /* Asegurar que la imagen no exceda el ancho de la tarjeta */
+    height: 150px; /* Altura fija para la imagen, ajusta según necesites */
+    object-fit: cover; /* Asegurar que la imagen cubra el espacio sin distorsionarse */
+    border-radius: 4px; /* Bordes redondeados para la imagen */
+    margin-bottom: 10px; /* Espacio debajo de la imagen */
+}
+
+/* Estilos para el nombre de la categoría */
+.category-card .category-name {
+    font-size: 1.1em; /* Tamaño de fuente para el nombre */
+    font-weight: bold; /* Texto en negrita */
+    color: #333; /* Color de texto oscuro */
+    margin-top: 5px; /* Margen superior pequeño */
+}
+
+/* Contenedor para todas las tarjetas de categoría (opcional, para layout) */
+.categories-container {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que las tarjetas pasen a la siguiente línea */
+    justify-content: center; /* Centrar las tarjetas en el contenedor */
+    padding: 20px;
+}
+
+/* Estilos para la tabla de categorías */
+.categories-container table {
+    width: 90%; /* Ligeramente más ancho */
+    margin: 30px auto; /* Más margen superior/inferior */
+    border-collapse: collapse;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra más suave y difusa */
+    background-color: #FFFFFF; /* Fondo blanco para la tabla */
+    color: #0D0D0D;
+    border-radius: 10px; /* Bordes redondeados más pronunciados */
+    overflow: hidden;
+}
+
+.categories-container th, .categories-container td {
+    border: none; /* Eliminamos bordes por defecto */
+    border-bottom: 1px solid #E0E0E0; /* Borde horizontal sutil (gris claro) */
+    padding: 15px 20px; /* Más padding */
+    text-align: left;
+    vertical-align: middle; /* Mejor alineación vertical */
+}
+
+.categories-container th {
+    background-color: #F2A20C; /* Naranja brillante */
+    color: #0D0D0D;
+    font-weight: 600; /* Un poco menos grueso que bold */
+    font-size: 0.95em;
+    text-transform: uppercase; /* Mayúsculas para encabezados */
+    letter-spacing: 0.5px;
+}
+
+/* Quitar el borde inferior del último td de cada fila para que no se duplique con el de la tabla si se usa */
+.categories-container tbody tr td {
+    background-color: #FFFFFF; /* Fondo blanco para celdas */
+    color: #0D0D0D;
+}
+
+.categories-container tbody tr:last-child td {
+    border-bottom: none; /* Sin borde en la última fila */
+}
+
+.categories-container img {
+    max-width: 60px; /* Ligeramente más grande */
+    height: auto;
+    border-radius: 6px; /* Bordes redondeados consistentes */
+    display: block; /* Para mejor control de layout si es necesario */
+}
+
+.categories-container tbody tr:hover {
+    background-color: #F8DB9D; /* Beige claro para hover, sutil */
+    color: #0D0D0D;
+}
+
+.categories-container tbody tr {
+    transition: background-color 0.25s ease-out; /* Transición más suave */
+}
+
+/* Estilos para el formulario de agregar categoría */
+.add-category-form-container {
+    background-color: #F8DB9D; /* Beige claro */
+    padding: 30px 40px;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    max-width: 750px; /* Ajustar según sea necesario */
+}
+
+.add-category-form-container h1 {
+    color: #8C4C27; /* Marrón */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.add-category-form .form-columns {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.add-category-form .form-column-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-category-form .form-column-right {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-category-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-category-form label {
+    margin-bottom: 8px;
+    color: #0D0D0D; /* Negro */
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.add-category-form input[type="text"],
+.add-category-form input[type="file"] {
+    padding: 12px 15px;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    font-size: 1em;
+    color: #0D0D0D; /* Negro */
+    background-color: #F9F9F9;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-category-form input[type="file"] {
+    display: none;
+}
+
+.add-category-form input[type="text"]:focus,
+.add-category-form input[type="file"]:focus {
+    border-color: #F2A20C; /* Naranja brillante */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(242, 162, 12, 0.25); /* Sombra de foco naranja */
+    background-color: #FFFFFF; /* Fondo blanco para inputs en foco */
+}
+
+.add-category-form .form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.add-category-form .btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    letter-spacing: 0.3px;
+}
+
+.add-category-form .btn:active {
+    transform: translateY(1px);
+}
+
+.add-category-form .btn-save {
+    background-color: #F2A20C; /* Naranja brillante */
+    color: #0D0D0D; /* Negro */
+}
+
+.add-category-form .btn-save:hover {
+    background-color: #D97904; /* Naranja oscuro */
+}
+
+.add-category-form .btn-cancel {
+    background-color: #E0E0E0; /* Gris claro */
+    color: #0D0D0D; /* Negro */
+}
+
+.add-category-form .btn-cancel:hover {
+    background-color: #C7C7C7; /* Gris más oscuro */
+}
+
+.add-category-form .btn-upload {
+    background-color: #F8DB9D;
+    color: #8C4C27;
+    border: 1px solid #D97904;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.add-category-form .btn-upload:hover {
+    background-color: #F2A20C;
+    color: #0D0D0D;
+    border-color: #F2A20C;
+}
+
+#imagePreviewContainer {
+    width: 220px;
+    height: 220px;
+    border: 2px dashed #D97904; /* Naranja oscuro */
+    background-color: #F9F9F9;
+    border-radius: 8px;
+    overflow: hidden; /* Para que la imagen no se salga del borde redondeado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease;
+    margin-bottom: 8px;
+}
+
+#imagePreviewContainer:hover {
+    border-color: #F2A20C; /* Naranja brillante en hover */
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* Por defecto está none, se cambia con JS */
+    border-radius: 8px;
+}
+
+#imagePreviewPlaceholder {
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #8C4C27; /* Marrón */
+}
+
+/* Mensajes de feedback */
+.success-message {
+    color: green;
+    background-color: #e6ffed;
+    border: 1px solid green;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
