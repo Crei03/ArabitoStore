@@ -1,0 +1,170 @@
+
+/* Reseteo de estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #0D0D0D;  /* Negro para textos según la guía */
+    background-color: #F8DB9D;  /* Beige claro para fondos primarios */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos del Header */
+header {
+    background-color: #ffff;  /* Blanco para encabezado de página */
+    padding: 1rem 5%;
+    box-shadow: 0 2px 5px rgba(13, 13, 13, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #F8DB9D;  /* Beige claro para el texto del menú */
+    font-weight: 600;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    background-color: #8B4B01;  /* Marrón para botones de navegación */
+}
+
+nav a:hover {
+    background-color: #F8DB9D;  /* Beige claro al pasar el cursor */
+    color: #8B4B01;  /* Marrón para el texto */
+}
+
+/* Estilos del contenido principal */
+main {
+    flex: 1;
+    padding: 2rem 5%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Títulos en el contenido principal */
+main h1, main h2 {
+    color: #8C4C27;  /* Marrón para títulos principales */
+    margin-bottom: 1rem;
+}
+
+main a {
+    color: #D97904;  /* Naranja oscuro para enlaces */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+main a:hover {
+    color: #F2A20C;  /* Naranja brillante al pasar el cursor */
+}
+
+/* Botones principales */
+.btn-primary {
+    background-color: #F2A20C;  /* Naranja brillante para botones principales */
+    color: #0D0D0D;  /* Negro para el texto */
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #D97904;  /* Naranja oscuro al pasar el cursor */
+}
+
+/* Estilos del Footer */
+footer {
+    background-color: #ffff;  /* Blanco para el pie de página según guía */
+    color: #F8DB9D;  /* Beige claro para el texto */
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+.social-media {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-media a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #8C4C27;  /* Marrón para contraste */
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-media a:hover {
+    background-color: #F8DB9D;  /* Naranja brillante al pasar el cursor */
+    transform: translateY(-3px);
+}
+
+.social-media a img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1); /* Convertir SVG a blanco */
+}
+
+.social-media a.facebook img {
+    filter: none; /* Muestra el color original */
+}
+
+.social-media a.whatsapp img {
+    filter: none; /* Muestra el color original */
+}
+
+.social-media a.instagram:hover img {
+    filter: none; /* Muestra el color original */
+}
+
+.social-media a.tiktok:hover img {
+    filter: none; /* Muestra el color original */
+}
+
+.store-logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Media queries para responsive */
+@media screen and (max-width: 768px) {
+    header, footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .social-media {
+        margin-bottom: 1rem;
+    }
+}

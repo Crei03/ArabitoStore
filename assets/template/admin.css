@@ -1,0 +1,306 @@
+/* Reseteo de estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    min-height: 100vh;
+    background-color: #FFFFFF; /* Fondo general blanco */
+}
+
+/* Contenedor principal para sidebar y contenido */
+.admin-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Estilos del Sidebar */
+aside.sidebar {
+    width: 250px;
+    background-color: #FFFFFF; /* Fondo blanco */
+    color: #0D0D0D; /* Texto negro */
+    padding: 1rem;
+    height: 100vh; /* Ocupa toda la altura */
+    position: fixed; /* Fijo en la pantalla */
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000; /* Asegurar que esté por encima del contenido desplazado */
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.sidebar .logo {
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid #8C4C27; /* Marrón */
+    margin-bottom: 1rem;
+}
+
+.sidebar .logo img {
+    height: 50px;
+    width: auto;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #0D0D0D; /* Texto negro */
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: #D97904; /* Naranja oscuro */
+    color: #FFFFFF; /* Texto blanco */
+    transform: translateX(5px); /* Sutil efecto de deslizamiento */
+}
+
+/* Estilos del Header (dentro del contenido principal) */
+header.main-header {
+    background-color: #F8DB9D; /* Beige claro */
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px; /* Altura fija para el header */
+    border-bottom: 2px solid #F2A20C; /* Borde naranja brillante */
+}
+
+.header-title h1 {
+    color: #8C4C27; /* Marrón */
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.user-profile a {
+    text-decoration: none;
+    color: #F2A20C; /* Naranja brillante */
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.user-profile a:hover {
+    color: #FFFFFF; /* Texto blanco al pasar el cursor */
+    background-color: #D97904; /* Fondo naranja oscuro */
+}
+
+/* Wrapper para el contenido principal y el header */
+.main-wrapper {
+    flex-grow: 1;
+    margin-left: 250px; /* Espacio para el sidebar */
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 250px);
+    min-height: 100vh; /* Asegura que ocupa al menos toda la altura de la ventana */
+}
+
+/* Estilos del contenido principal */
+main.content {
+    flex-grow: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
+    padding: 2rem;
+    background-color: #FFFFFF; /* Fondo blanco para el área de contenido */
+}
+
+main.content h1, main.content h2 {
+    color: #8C4C27; /* Marrón para títulos */
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+main.content p {
+    color: #0D0D0D; /* Negro para texto principal */
+}
+
+/* Estilos del Footer (dentro del contenido principal) */
+footer.main-footer {
+    background-color: #F8DB9D; /* Beige claro */
+    color: #8C4C27; /* Texto marrón */
+    padding: 1rem 2rem;
+    text-align: center;
+    border-top: 2px solid #F2A20C; /* Borde naranja brillante */
+}
+
+/* Estilos adicionales para elementos interactivos */
+.btn-primary {
+    background-color: #F2A20C; /* Naranja brillante */
+    color: #0D0D0D; /* Texto negro */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #D97904; /* Naranja oscuro */
+    color: #FFFFFF; /* Texto blanco */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(242, 162, 12, 0.3);
+}
+
+.btn-secondary {
+    background-color: #F8DB9D; /* Beige claro */
+    color: #8C4C27; /* Texto marrón */
+    border: 2px solid #F2A20C;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: #F2A20C; /* Naranja brillante */
+    color: #0D0D0D; /* Texto negro */
+}
+
+/* Estilos para formularios */
+.form-control {
+    border: 2px solid #F8DB9D;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #F2A20C; /* Naranja brillante */
+    box-shadow: 0 0 0 3px rgba(242, 162, 12, 0.2);
+}
+
+/* Estilos para alertas y notificaciones */
+.alert-success {
+    background-color: rgba(248, 219, 157, 0.2);
+    border: 1px solid #F8DB9D;
+    color: #8C4C27;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.alert-warning {
+    background-color: rgba(242, 162, 12, 0.1);
+    border: 1px solid #F2A20C;
+    color: #8C4C27;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para tablas */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.table th {
+    background-color: #F8DB9D; /* Beige claro */
+    color: #8C4C27; /* Texto marrón */
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #F2A20C;
+    font-weight: 600;
+}
+
+.table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #F8DB9D;
+    color: #0D0D0D;
+}
+
+.table tr:hover {
+    background-color: rgba(248, 219, 157, 0.1);
+}
+
+/* Estilos para tarjetas/cards */
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid #F8DB9D;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(242, 162, 12, 0.15);
+}
+
+.card-header {
+    background-color: #F8DB9D; /* Beige claro */
+    color: #8C4C27; /* Texto marrón */
+    padding: 1rem 1.5rem;
+    margin: -1.5rem -1.5rem 1rem -1.5rem;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    aside.sidebar {
+        width: 100%;
+        height: auto;
+        position: static; /* Cambia a estático en móviles */
+        flex-direction: row; /* Logo y nav en fila */
+        justify-content: space-around;
+        align-items: center;
+        z-index: auto;
+    }
+
+    .sidebar .logo {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .sidebar nav ul {
+        display: flex; /* Menú horizontal */
+    }
+
+    .sidebar nav ul li a {
+        padding: 0.5rem;
+        margin-bottom: 0;
+        margin-right: 0.5rem; /* Espacio entre items */
+    }
+    
+    .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    header.main-header {
+        height: auto; /* Altura automática en móviles */
+        flex-direction: column; /* Apilar título y perfil de usuario */
+        gap: 0.5rem;
+    }
+
+    .admin-container {
+        flex-direction: column; /* Apila sidebar, main-wrapper */
+    }
+}
