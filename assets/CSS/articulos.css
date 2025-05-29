@@ -1,0 +1,87 @@
+/* Estilos para cada sección de categoría de artículos */
+.category-section {
+    margin-bottom: 30px; /* Espacio debajo de cada sección de categoría */
+    padding: 15px;
+    background-color: #f9f9f9; /* Un fondo ligero para distinguir secciones */
+    border-radius: 8px;
+}
+
+.category-section h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px; /* Espacio debajo del título de la categoría */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Contenedor para las tarjetas de artículos, permitirá scroll horizontal */
+.articles-container {
+    display: flex; /* Organizar tarjetas en fila */
+    overflow-x: auto; /* Habilitar scroll horizontal si los artículos exceden el ancho */
+    overflow-y: hidden; /* Ocultar scroll vertical */
+    padding-bottom: 15px; /* Espacio para la barra de scroll si aparece */
+    gap: 15px; /* Espacio entre tarjetas */
+}
+
+/* Estilos para cada tarjeta de artículo */
+.article-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 15px;
+    min-width: 220px; /* Ancho mínimo para cada tarjeta, ajusta según necesites */
+    max-width: 220px; /* Ancho máximo para cada tarjeta */
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para que el precio quede abajo si las alturas varían */
+}
+
+.article-card img {
+    max-width: 100%;
+    height: 180px; /* Altura fija para la imagen del producto */
+    object-fit: contain; /* 'contain' para ver toda la imagen, 'cover' para rellenar */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.article-card h3 {
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 8px;
+    font-weight: 600;
+    /* Limitar el nombre del producto a 2 líneas con elipsis */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.4em; /* Aproximadamente 2 líneas de texto */
+}
+
+.article-card .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff; /* Un color distintivo para el precio */
+    margin-top: auto; /* Empuja el precio hacia abajo si hay espacio extra */
+}
+
+/* Estilos para la barra de scroll (opcional, para mejorar la apariencia) */
+.articles-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.articles-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.articles-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.articles-container::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
