@@ -48,6 +48,11 @@ function showTargetMessage(message, reason = '', status = 'exito') {
             class: 'target-message-success',
             autoClose: 3000
         },
+        'espera': {
+            icon: 'schedule',
+            class: 'target-message-waiting',
+            autoClose: false
+        },
         'suceso inesperado': {
             icon: 'warning',
             class: 'target-message-warning',
@@ -114,6 +119,10 @@ function showSuccessMessage(message, reason = '') {
     return showTargetMessage(message, reason, 'exito');
 }
 
+function showWaitingMessage(message, reason = '') {
+    return showTargetMessage(message, reason, 'espera');
+}
+
 function showWarningMessage(message, reason = '') {
     return showTargetMessage(message, reason, 'suceso inesperado');
 }
@@ -125,6 +134,6 @@ function showErrorMessage(message, reason = '') {
 
 // Ejemplos de uso:
 // TargetMessages.success('Login exitoso', 'Has iniciado sesión correctamente');
+// TargetMessages.waiting('Cargando datos', 'Por favor, espera mientras se cargan los datos');
 // TargetMessages.warning('Advertencia', 'Algo inesperado ocurrió');
 // TargetMessages.error('Error de conexión', 'No se pudo conectar al servidor');
-// TargetMessages.show('Mensaje personalizado', 'Razón opcional', 'exito', 5000);
