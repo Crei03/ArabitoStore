@@ -85,3 +85,472 @@
 .articles-container::-webkit-scrollbar-thumb:hover {
     background: #aaa;
 }
+
+/* Estilos para el formulario de agregar/editar producto */
+.add-product-form-container {
+    background-color: #F8DB9D; /* Beige claro, similar a categoria.css */
+    padding: 30px 40px;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    max-width: 850px; /* Un poco más ancho para campos adicionales */
+}
+
+.add-product-form-container h1,
+.edit-product-modal-content h2 { /* Para el modal de edición */
+    color: #8C4C27; /* Marrón, similar a categoria.css */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.add-product-form .form-columns,
+.edit-product-form .form-columns-edit { /* Para el modal de edición */
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.add-product-form .form-column-left,
+.edit-product-form .form-column-left-edit,
+.add-product-form .form-column-left-producto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-product-form .form-column-right,
+.edit-product-form .form-column-right-edit { /* Para el modal de edición */
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Un poco menos de gap para más campos */
+}
+
+.add-product-form .form-group,
+.edit-product-form .form-group-edit { /* Para el modal de edición */
+    display: flex;
+    flex-direction: column;
+}
+
+.add-product-form label,
+.edit-product-form label { /* Para el modal de edición */
+    margin-bottom: 8px;
+    color: #0D0D0D; /* Negro, similar a categoria.css */
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.add-product-form input[type="text"],
+.add-product-form input[type="number"],
+.add-product-form textarea,
+.add-product-form select,
+.edit-product-form input[type="text"], /* Para el modal de edición */
+.edit-product-form input[type="number"], /* Para el modal de edición */
+.edit-product-form textarea, /* Para el modal de edición */
+.edit-product-form select { /* Para el modal de edición */
+    padding: 12px 15px;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    font-size: 1em;
+    color: #0D0D0D; /* Negro */
+    background-color: #F9F9F9;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Asegurar que ocupen el ancho del contenedor */
+    box-sizing: border-box; /* Para que padding no afecte el ancho total */
+}
+
+.add-product-form textarea,
+.edit-product-form textarea { /* Para el modal de edición */
+    min-height: 80px;
+    resize: vertical;
+}
+
+.add-product-form input[type="file"] { /* Ocultar el input file por defecto */
+    display: none;
+}
+
+.add-product-form input[type="text"]:focus,
+.add-product-form input[type="number"]:focus,
+.add-product-form textarea:focus,
+.add-product-form select:focus,
+.edit-product-form input[type="text"]:focus, /* Para el modal de edición */
+.edit-product-form input[type="number"]:focus, /* Para el modal de edición */
+.edit-product-form textarea:focus, /* Para el modal de edición */
+.edit-product-form select:focus { /* Para el modal de edición */
+    border-color: #F2A20C; /* Naranja brillante, similar a categoria.css */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(242, 162, 12, 0.25); /* Sombra de foco naranja */
+    background-color: #FFFFFF;
+}
+
+.add-product-form .image-preview-container,
+.edit-product-form .image-preview-container-edit { /* Para el modal de edición */
+    width: 220px;
+    height: 220px;
+    border: 2px dashed #D97904; /* Naranja oscuro, similar a categoria.css */
+    background-color: #F9F9F9;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease;
+    margin-bottom: 8px;
+    position: relative; /* Para el placeholder */
+}
+
+.add-product-form .image-preview-container:hover,
+.edit-product-form .image-preview-container-edit:hover { /* Para el modal de edición */
+    border-color: #F2A20C; /* Naranja brillante en hover */
+}
+
+.add-product-form .image-preview,
+.edit-product-form .image-preview-edit { /* Para el modal de edición */
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* Para evitar espacio extra debajo de la imagen */
+}
+
+.add-product-form .image-preview-placeholder,
+.edit-product-form .image-preview-placeholder-edit { /* Para el modal de edición */
+    color: #8C4C27; /* Marrón */
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+.add-product-form .btn-upload,
+.edit-product-form .btn-upload-edit { /* Para el modal de edición */
+    background-color: #F8DB9D;
+    color: #8C4C27;
+    border: 1px solid #D97904;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    display: inline-block; /* Para que el botón no ocupe todo el ancho */
+    text-align: center;
+}
+
+.add-product-form .btn-upload:hover,
+.edit-product-form .btn-upload-edit:hover { /* Para el modal de edición */
+    background-color: #F2A20C;
+    color: #0D0D0D;
+    border-color: #F2A20C;
+}
+
+.add-product-form .form-buttons,
+.edit-product-form .form-buttons-edit { /* Para el modal de edición */
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.add-product-form .btn,
+.edit-product-form .btn { /* Para el modal de edición */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    letter-spacing: 0.3px;
+}
+
+.add-product-form .btn:active,
+.edit-product-form .btn:active { /* Para el modal de edición */
+    transform: translateY(1px);
+}
+
+.add-product-form .btn-save,
+.edit-product-form .btn-save-edit { /* Para el modal de edición */
+    background-color: #F2A20C; /* Naranja brillante */
+    color: #0D0D0D; /* Negro */
+}
+
+.add-product-form .btn-save:hover,
+.edit-product-form .btn-save-edit:hover { /* Para el modal de edición */
+    background-color: #D97904; /* Naranja oscuro */
+}
+
+.add-product-form .btn-cancel,
+.edit-product-form .btn-cancel-edit { /* Para el modal de edición */
+    background-color: #E0E0E0; /* Gris claro */
+    color: #0D0D0D; /* Negro */
+}
+
+.add-product-form .btn-cancel:hover,
+.edit-product-form .btn-cancel-edit:hover { /* Para el modal de edición */
+    background-color: #C7C7C7; /* Gris más oscuro */
+}
+
+/* Estilos para la tabla de productos */
+.products-table-container {
+    margin: 30px auto;
+    padding: 0 20px; /* Añadir padding lateral si es necesario */
+    max-width: 95%; /* Ajustar el ancho máximo de la tabla */
+}
+
+.products-table {
+    width: 100%; /* Hacer la tabla responsive */
+    margin: 0 auto; /* Centrar la tabla si el contenedor es más ancho */
+    border-collapse: collapse;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background-color: #FFFFFF;
+    color: #0D0D0D;
+    border-radius: 10px;
+    overflow: hidden; /* Para que los bordes redondeados se apliquen a la tabla */
+}
+
+.products-table th, .products-table td {
+    border-bottom: 1px solid #E0E0E0;
+    padding: 12px 18px; /* Ajustar padding */
+    text-align: left;
+    vertical-align: middle;
+}
+
+.products-table th {
+    background-color: #F2A20C; /* Naranja brillante, similar a categoria.css */
+    color: #0D0D0D; /* Negro */
+    font-weight: 600;
+    font-size: 0.9em; /* Un poco más pequeño */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.products-table tbody tr td {
+    background-color: #FFFFFF;
+    color: #0D0D0D;
+    font-size: 0.95em; /* Ligeramente más grande para el contenido */
+}
+
+.products-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.products-table img {
+    max-width: 50px; /* Tamaño de imagen en tabla */
+    height: 50px;
+    object-fit: cover; /* Para que la imagen se vea bien */
+    border-radius: 6px;
+    display: block;
+}
+
+.products-table tbody tr:hover {
+    background-color: #F8DB9D; /* Beige claro para hover, similar a categoria.css */
+    color: #0D0D0D;
+}
+
+.products-table tbody tr {
+    transition: background-color 0.25s ease-out;
+}
+
+/* Botón editar categoría */
+.btn-edit-categoria {
+    background-color: #F2A20C; /* Naranja brillante */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(242,162,12,0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-edit-categoria:hover {
+    background-color: #D97904; /* Naranja oscuro */
+    color: #fff;
+}
+
+/* Botón eliminar categoría */
+.btn-delete-categoria {
+    background-color: #E53935; /* Rojo fuerte */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(229,57,53,0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-delete-categoria:hover {
+    background-color: #B71C1C; /* Rojo más oscuro */
+    color: #fff;
+}
+
+/* Iconos dentro de los botones de acción */
+.btn-edit-categoria i,
+.btn-delete-categoria i {
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin: 0;
+    pointer-events: none;
+}
+
+/* Botón editar producto */
+.btn-edit-producto {
+    background-color: #F2A20C;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(242,162,12,0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-edit-producto:hover {
+    background-color: #D97904;
+    color: #fff;
+}
+
+/* Botón eliminar producto */
+.btn-delete-producto {
+    background-color: #E53935;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(229,57,53,0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-delete-producto:hover {
+    background-color: #B71C1C;
+    color: #fff;
+}
+
+/* Iconos dentro de los botones de acción de producto */
+.btn-edit-producto i,
+.btn-delete-producto i {
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin: 0;
+    pointer-events: none;
+}
+
+
+/* Estilos para el Modal de Edición de Producto (similar a categoria.css) */
+.modal-edit-product-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-edit-product-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-edit-product-content {
+    background-color: #F8DB9D; /* Mismo fondo que el form de agregar */
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    max-width: 850px;
+    width: 90%;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-edit-product-backdrop.active .modal-edit-product-content {
+    transform: scale(1);
+}
+
+.modal-edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Reducir un poco el margen inferior del header */
+}
+
+.modal-edit-header h2 {
+    margin-bottom: 0; /* Quitar margen si ya está en el contenedor principal */
+}
+
+.close-modal-edit {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #8C4C27; /* Marrón */
+}
+.close-modal-edit:hover {
+    color: #593017; /* Marrón más oscuro */
+}
+
+/* Para truncar descripción en la tabla */
+.products-table td.description-cell {
+    max-width: 250px; /* Ajusta según necesidad */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Si se quiere multilínea con elipsis (más complejo y puede requerir JS o CSS más avanzado) */
+.products-table td.description-cell.multiline {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Número de líneas a mostrar */
+    line-clamp: 3; /* Estándar */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4em; /* Ajustar según el font-size */
+    max-height: calc(1.4em * 3); /* line-height * número de líneas */
+}
+
+
+
+/* Responsive adjustments (opcional, pero bueno considerarlo) */
+@media (max-width: 768px) {
+    .add-product-form .form-columns {
+        flex-direction: column;
+    }
+    .add-product-form .form-column-left,
+    .add-product-form .form-column-right {
+        width: 100%;
+    }
+    .products-table th, .products-table td {
+        padding: 10px 8px; /* Menos padding en pantallas pequeñas */
+        font-size: 0.85em;
+    }
+    .products-table .btn {
+        padding: 6px 8px;
+        font-size: 0.8em;
+    }
+}

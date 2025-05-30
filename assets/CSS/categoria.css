@@ -282,3 +282,282 @@
     border-radius: 4px;
     text-align: center;
 }
+
+/* Estilos para el Modal de Edición de Categoría */
+.modal-edit-category-backdrop {
+    display: flex; /* Usar flex para centrar el contenido */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Fondo oscuro semitransparente */
+}
+
+.modal-edit-category-content {
+    background-color: #F8DB9D; /* Mismo fondo que add-category-form-container */
+    margin: auto; /* Centrado automático */
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    width: 60%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre header y form */
+}
+
+.modal-edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #D97904; /* Línea divisoria naranja oscuro */
+}
+
+.modal-edit-header h2 {
+    color: #8C4C27; /* Marrón, igual que el h1 del form de agregar */
+    font-size: 1.6em; /* Ligeramente más pequeño que el h1 principal */
+    font-weight: 600;
+    margin: 0;
+}
+
+.close-modal-edit {
+    color: #8C4C27; /* Marrón */
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-modal-edit:hover,
+.close-modal-edit:focus {
+    color: #593017; /* Marrón más oscuro */
+    text-decoration: none;
+}
+
+.edit-category-form .form-columns-edit {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.edit-category-form .form-column-left-edit {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-category-form .form-column-right-edit {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edit-category-form .form-group-edit {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-category-form label {
+    margin-bottom: 8px;
+    color: #0D0D0D; /* Negro */
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.edit-category-form input[type="text"] {
+    padding: 12px 15px;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    font-size: 1em;
+    color: #0D0D0D; /* Negro */
+    background-color: #F9F9F9;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Asegurar que ocupe el ancho disponible */
+    box-sizing: border-box; /* Para que padding no afecte el ancho total */
+}
+
+.edit-category-form input[type="text"]:focus {
+    border-color: #F2A20C; /* Naranja brillante */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(242, 162, 12, 0.25); /* Sombra de foco naranja */
+    background-color: #FFFFFF; /* Fondo blanco para inputs en foco */
+}
+
+.edit-category-form .image-preview-container-edit {
+    width: 180px; /* Ajustar tamaño según sea necesario */
+    height: 180px;
+    border: 2px dashed #D97904; /* Naranja oscuro */
+    background-color: #F9F9F9;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Para el label absoluto */
+    margin-bottom: 10px;
+    transition: border-color 0.2s ease;
+}
+
+.edit-category-form .image-preview-container-edit:hover {
+    border-color: #F2A20C; /* Naranja brillante en hover */
+}
+
+.edit-category-form #imagePreviewEdit {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    border-radius: 6px; /* Ligeramente menos que el contenedor para que no se solape */
+}
+
+.edit-category-form #labelImageUploadEdit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgba(249, 249, 249, 0.7); /* Fondo semi-transparente */
+    color: #8C4C27; /* Marrón */
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.edit-category-form #labelImageUploadEdit:hover {
+    background-color: rgba(242, 162, 12, 0.3); /* Naranja semi-transparente en hover */
+}
+
+.edit-category-form .btn-upload-edit {
+    background-color: #F8DB9D; /* Beige claro */
+    color: #8C4C27; /* Marrón */
+    border: 1px solid #D97904; /* Naranja oscuro */
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.edit-category-form .btn-upload-edit:hover {
+    background-color: #F2A20C; /* Naranja brillante */
+    color: #0D0D0D; /* Negro */
+    border-color: #F2A20C;
+}
+
+.edit-category-form .form-buttons-edit {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.edit-category-form .btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    letter-spacing: 0.3px;
+}
+
+.edit-category-form .btn:active {
+    transform: translateY(1px);
+}
+
+.edit-category-form .btn-save-edit {
+    background-color: #F2A20C; /* Naranja brillante */
+    color: #0D0D0D; /* Negro */
+}
+
+.edit-category-form .btn-save-edit:hover {
+    background-color: #D97904; /* Naranja oscuro */
+}
+
+.edit-category-form .btn-cancel-edit {
+    background-color: #E0E0E0; /* Gris claro */
+    color: #0D0D0D; /* Negro */
+}
+
+.edit-category-form .btn-cancel-edit:hover {
+    background-color: #C7C7C7; /* Gris más oscuro */
+}
+
+.edit-category-form .message-div-edit {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.edit-category-form .message-div-edit p {
+    margin: 0;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Botón editar categoría */
+.btn-edit-categoria {
+    background-color: #F2A20C; /* Naranja brillante */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(242,162,12,0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-edit-categoria:hover {
+    background-color: #D97904; /* Naranja oscuro */
+    color: #fff;
+}
+
+/* Botón eliminar categoría */
+.btn-delete-categoria {
+    background-color: #E53935; /* Rojo fuerte */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(229,57,53,0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-delete-categoria:hover {
+    background-color: #B71C1C; /* Rojo más oscuro */
+    color: #fff;
+}
+
+/* Iconos dentro de los botones de acción */
+.btn-edit-categoria i,
+.btn-delete-categoria i {
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin: 0;
+    pointer-events: none;
+}
