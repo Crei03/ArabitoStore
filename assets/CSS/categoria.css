@@ -199,12 +199,12 @@
 }
 
 .add-category-form .btn-cancel {
-    background-color: #E0E0E0; /* Gris claro */
-    color: #0D0D0D; /* Negro */
+    background-color: #FFFF; 
+    color: #0D0D0D; 
 }
 
 .add-category-form .btn-cancel:hover {
-    background-color: #C7C7C7; /* Gris más oscuro */
+    background-color: #e0e0e0eb; /* Gris más oscuro */
 }
 
 .add-category-form .btn-upload {

@@ -6,9 +6,6 @@ function render_admin_header($page_title)
             <div class="header-title">
                 <h1>' . htmlspecialchars($page_title) . '</h1>
             </div>
-            <div class="user-profile">
-                <a href="#">Admin User</a> 
-            </div>
         </header>';
 }
 
@@ -21,13 +18,13 @@ function render_admin_sidebar()
         'dashboard.php' => 'Dashboard',
         'categorias.php' => 'Categorías',
         'productos.php' => 'Productos',
-        '../public/index.php' => 'Salir' // Ejemplo de enlace de salida
+        '../public/index.php' => 'Salir'
     ];
 
     echo '<aside class="sidebar">
             <div class="logo">
                 <a href="dashboard.php"> 
-                    <img src="../../public/images/logo.png" alt="ArabitoStore Logo">
+                    <img src="../public/images/logo.png" alt="ArabitoStore Logo">
                 </a>
             </div>
             <nav>
@@ -58,7 +55,7 @@ function render_admin_page($page_title, $content_callback, $current_page_filenam
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>' . htmlspecialchars($page_title) . ' - Admin</title>
-        <link rel="stylesheet" href="../../assets/template/admin.css">
+        <link rel="stylesheet" href="../assets/template/admin.css">
     </head>
     <body>';
 

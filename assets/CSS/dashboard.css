@@ -1,0 +1,169 @@
+/* Estilos unificados para el dashboard de administración */
+
+:root {
+  --color-naranja: #F2A20C;
+  --color-naranja-oscuro: #D97904;
+  --color-beige: #F8DB9D;
+  --color-marron: #8C4C27;
+  --color-negro: #0D0D0D;
+  --color-blanco: #FFFFFF;
+}
+
+body, .dashboard-container {
+  background: var(--color-blanco);
+  color: var(--color-negro);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px 32px 16px;
+}
+
+.dashboard-section {
+  background: var(--color-beige);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(140,76,39,0.08);
+  margin-bottom: 32px;
+  padding: 24px 24px 16px 24px;
+}
+
+/* Estadísticas Generales */
+.stats-cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.stat-card {
+  background: linear-gradient(135deg, var(--color-naranja) 80%, var(--color-naranja-oscuro) 100%);
+  color: var(--color-negro);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(242,162,12,0.10);
+  padding: 24px 32px;
+  min-width: 180px;
+  flex: 1 1 180px;
+  text-align: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.stat-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(217,121,4,0.18);
+}
+.stat-card h4 {
+  margin: 0 0 8px 0;
+  color: var(--color-marron);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.stat-card p {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Últimos Productos Agregados */
+#dashboard-latest-products ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#dashboard-latest-products li {
+  display: flex;
+  align-items: center;
+  background: var(--color-blanco);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 4px rgba(217,121,4,0.07);
+  border-left: 6px solid var(--color-naranja-oscuro);
+  transition: box-shadow 0.15s;
+}
+#dashboard-latest-products li:hover {
+  box-shadow: 0 4px 12px rgba(242,162,12,0.13);
+  border-left-color: var(--color-naranja);
+}
+#dashboard-latest-products img {
+  margin-left: 16px;
+  border-radius: 6px;
+  background: var(--color-beige);
+  box-shadow: 0 1px 4px rgba(140,76,39,0.10);
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+#dashboard-latest-products strong {
+  color: var(--color-marron);
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Resumen de Categorías */
+#dashboard-category-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#dashboard-category-summary li {
+  background: var(--color-blanco);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px 18px;
+  box-shadow: 0 1px 4px rgba(140,76,39,0.07);
+  border-left: 5px solid var(--color-marron);
+  display: flex;
+  align-items: center;
+  font-size: 1.08rem;
+}
+#dashboard-category-summary strong {
+  color: var(--color-naranja-oscuro);
+  margin-right: 8px;
+}
+
+/* Títulos y Encabezados */
+.dashboard-section h3 {
+  color: var(--color-marron);
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.dashboard-container h2 {
+  color: var(--color-naranja-oscuro);
+  font-size: 2.1rem;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+.dashboard-container p {
+  color: var(--color-marron);
+  font-size: 1.08rem;
+  margin-bottom: 24px;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .stats-cards {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .dashboard-section {
+    padding: 16px 8px 8px 8px;
+  }
+}
+@media (max-width: 500px) {
+  .dashboard-container {
+    padding: 8px 2px;
+  }
+  .stat-card {
+    padding: 16px 8px;
+    min-width: 120px;
+  }
+  #dashboard-latest-products img {
+    width: 36px;
+    height: 36px;
+  }
+}

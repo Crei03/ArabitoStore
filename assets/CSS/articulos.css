@@ -283,13 +283,13 @@
 
 .add-product-form .btn-cancel,
 .edit-product-form .btn-cancel-edit { /* Para el modal de edición */
-    background-color: #E0E0E0; /* Gris claro */
+    background-color: #FFFF; /* Gris claro */
     color: #0D0D0D; /* Negro */
 }
 
 .add-product-form .btn-cancel:hover,
 .edit-product-form .btn-cancel-edit:hover { /* Para el modal de edición */
-    background-color: #C7C7C7; /* Gris más oscuro */
+    background-color: #e0e0e0eb; 
 }
 
 /* Estilos para la tabla de productos */
@@ -376,7 +376,7 @@
 
 /* Botón eliminar categoría */
 .btn-delete-categoria {
-    background-color: #E53935; /* Rojo fuerte */
+    background-color: #E53935; /* Rojo fuerteg */
     color: #fff;
     border: none;
     border-radius: 6px;
