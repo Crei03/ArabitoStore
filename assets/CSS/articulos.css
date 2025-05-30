@@ -113,8 +113,7 @@
 }
 
 .add-product-form .form-column-left,
-.edit-product-form .form-column-left-edit,
-.add-product-form .form-column-left-producto {
+.edit-product-form .form-column-left-edit { /* Para el modal de edición */
     flex: 1;
     display: flex;
     flex-direction: column;
