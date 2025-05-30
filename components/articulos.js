@@ -11,7 +11,13 @@ function crearTarjetaArticulo(articulo) {
     const img = document.createElement('img');
     // Asume que la columna 'imagen' en la tabla 'producto' contiene la ruta de la imagen.
     // Ajusta la ruta base si es necesario, ej: 'public/images/productos/'
-    img.src = articulo.imagen; // Placeholder si no hay imagen
+
+    if (articulo.imagen.startsWith('https://')) {
+        img.src = articulo.imagen; // Placeholder si no hay imagen
+
+    } else {
+        img.src = '../public/images/producto/' + articulo.imagen;
+    }
     img.alt = articulo.nombre;
 
     const name = document.createElement('h3');
