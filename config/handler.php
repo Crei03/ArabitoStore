@@ -1,10 +1,12 @@
 <?php
-class DBHandler {
+class DBHandler
+{
     private $conn;
 
-    public function __construct($conn = null) {
+    public function __construct($conn = null)
+    {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        
+
         // Si no se proporciona una conexión, usar la función conectarBD de config.php
         if ($conn === null) {
             require_once __DIR__ . '/config.php';
@@ -12,20 +14,25 @@ class DBHandler {
         } else {
             $this->conn = $conn;
         }
-        
+
         $this->conn->query("SET SESSION sql_mode = 'STRICT_ALL_TABLES'");
     }
 
-    private function getParamTypes($values) {
+    private function getParamTypes($values)
+    {
         return implode("", array_map(function ($value) {
-            if (is_int($value)) return "i";
-            if (is_float($value)) return "d";
-            if (is_null($value)) return "s"; 
+            if (is_int($value))
+                return "i";
+            if (is_float($value))
+                return "d";
+            if (is_null($value))
+                return "s";
             return "s";
         }, $values));
     }
 
-    public function insert($table, $columns, $values) {
+    public function insert($table, $columns, $values)
+    {
         try {
             $cols = implode(", ", $columns);
             $placeholders = implode(", ", array_fill(0, count($values), "?"));
@@ -47,11 +54,13 @@ class DBHandler {
                 "message" => "Error al insertar: " . $e->getMessage()
             ];
         } finally {
-            if (isset($stmt)) $stmt->close();
+            if (isset($stmt))
+                $stmt->close();
         }
     }
 
-    public function selectAll($table) {
+    public function selectAll($table)
+    {
         try {
             $result = $this->conn->query("SELECT * FROM $table");
             return [
@@ -66,7 +75,8 @@ class DBHandler {
         }
     }
 
-    public function selectOne($table, $idColumn, $idValue) {
+    public function selectOne($table, $idColumn, $idValue)
+    {
         try {
             $stmt = $this->conn->prepare("SELECT * FROM $table WHERE $idColumn = ?");
             $stmt->bind_param($this->getParamTypes([$idValue]), $idValue);
@@ -79,11 +89,13 @@ class DBHandler {
         } catch (Exception $e) {
             return ["status" => "error", "message" => "Error al buscar: " . $e->getMessage()];
         } finally {
-            if (isset($stmt)) $stmt->close();
+            if (isset($stmt))
+                $stmt->close();
         }
     }
 
-    public function update($table, $columns, $values, $idColumn, $idValue) {
+    public function update($table, $columns, $values, $idColumn, $idValue)
+    {
         try {
             $set = implode(" = ?, ", $columns) . " = ?";
             $types = $this->getParamTypes($values) . $this->getParamTypes([$idValue]);
@@ -102,11 +114,13 @@ class DBHandler {
                 "message" => "Error al actualizar: " . $e->getMessage()
             ];
         } finally {
-            if (isset($stmt)) $stmt->close();
+            if (isset($stmt))
+                $stmt->close();
         }
     }
 
-    public function delete($table, $idColumn, $idValue) {
+    public function delete($table, $idColumn, $idValue)
+    {
         try {
             $stmt = $this->conn->prepare("DELETE FROM $table WHERE $idColumn = ?");
             $stmt->bind_param($this->getParamTypes([$idValue]), $idValue);
@@ -129,14 +143,15 @@ class DBHandler {
                 "message" => "Error al eliminar: " . $e->getMessage()
             ];
         } finally {
-            if (isset($stmt)) $stmt->close();
+            if (isset($stmt))
+                $stmt->close();
         }
     }
 
-    public function close() {
-        if ($this->conn) {
-            cerrarConexion($this->conn);
-        }
+    public function getConnection()
+    {
+        return $this->conn;
     }
+
 }
 ?>

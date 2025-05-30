@@ -89,6 +89,15 @@ switch ($action) {
         }
         handleImageUpload($uploadDir);
         break;
+    case 'getDashboardStats':
+        getDashboardStats($db);
+        break;
+    case 'getLatestProducts':
+        getLatestProducts($db);
+        break;
+    case 'getCategoryProductSummary':
+        getCategoryProductSummary($db);
+        break;
     default:
         http_response_code(400);
         echo json_encode(["status" => "error", "message" => "Acción no válida"]);
@@ -296,4 +305,51 @@ function delete($db, $table, $data)
     $idValue = array_values($data)[0];
     $result = $db->delete($table, $idColumn, $idValue);
     echo json_encode($result);
+}
+
+// --- Nuevas funciones para el dashboard ---
+function getDashboardStats($db)
+{
+    $totalProductos = 0;
+    $totalCategorias = 0;
+    $res1 = $db->selectAll('producto');
+    if ($res1['status'] === 'ok')
+        $totalProductos = count($res1['data']);
+    $res2 = $db->selectAll('categoria');
+    if ($res2['status'] === 'ok')
+        $totalCategorias = count($res2['data']);
+    echo json_encode([
+        'status' => 'ok',
+        'totalProductos' => $totalProductos,
+        'totalCategorias' => $totalCategorias
+    ]);
+}
+
+function getLatestProducts($db)
+{
+    $conn = $db->getConnection();
+    $result = $conn->query("SELECT id, nombre, descripcion, precio, imagen FROM producto ORDER BY id DESC LIMIT 5");
+    $productos = [];
+    if ($result) {
+        $productos = $result->fetch_all(MYSQLI_ASSOC);
+    }
+    echo json_encode([
+        'status' => 'ok',
+        'data' => $productos
+    ]);
+}
+
+function getCategoryProductSummary($db)
+{
+    $conn = $db->getConnection();
+    $sql = "SELECT c.nombre AS categoria_nombre, COUNT(pc.producto_id) AS cantidad_productos FROM categoria c LEFT JOIN producto_categoria pc ON c.id = pc.categoria_id GROUP BY c.id, c.nombre ORDER BY cantidad_productos DESC";
+    $result = $conn->query($sql);
+    $resumen = [];
+    if ($result) {
+        $resumen = $result->fetch_all(MYSQLI_ASSOC);
+    }
+    echo json_encode([
+        'status' => 'ok',
+        'data' => $resumen
+    ]);
 }
