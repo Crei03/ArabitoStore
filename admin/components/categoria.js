@@ -517,9 +517,36 @@ function renderCategoriesTable() {
                     });
                 });
 
-                // Añadir event listeners para los botones de eliminar (si ya no están manejados globalmente)
-                // Aquí se asume que la lógica de eliminación ya existe y funciona.
-                // Si no, se debería añadir aquí o asegurar que un listener global los maneje.
+                // Añadir event listeners para los botones de eliminar 
+                document.querySelectorAll('.btn-delete-categoria').forEach(button => {
+                    button.addEventListener('click', async (event) => {
+                        const categoryId = event.currentTarget.dataset.id;
+                        // Usar el modal de confirmación personalizado
+                        const modal = new window.ConfirmModal({
+                            message: '¿Estás seguro de que deseas eliminar esta categoría?',
+                            onConfirm: async () => {
+                                try {
+                                    const response = await fetch(CATEGORIA_API_URL, {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({ action: 'delete', table: 'categoria', data: { id: categoryId } })
+                                    });
+                                    const resultDelete = await response.json();
+                                    if (resultDelete.status === 'ok') {
+                                        showSuccessMessage('Categoría eliminada exitosamente.');
+                                        renderCategoriesTable(); // Actualizar la tabla
+                                    } else {
+                                        showErrorMessage(resultDelete.message || 'Error al eliminar la categoría.');
+                                    }
+                                } catch (error) {
+                                    showErrorMessage('Error de conexión al eliminar la categoría.');
+                                }
+                            },
+                            onCancel: () => { }
+                        });
+                        modal.open();
+                    });
+                });
 
             } else {
                 tableContainer.innerHTML = '<div class="categories-container"><p>No hay categorías para mostrar.</p></div>';

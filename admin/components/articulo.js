@@ -507,6 +507,46 @@ async function getCategoriaIdByProductoId(productoId) {
     return null;
 }
 
+async function deleteProduct(productId, productName) {
+    // Usar el modal de confirmación personalizado
+    const modal = new window.ConfirmModal({
+        message: `¿Estás seguro de que deseas eliminar el producto "${productName}"?`,
+        onConfirm: async () => {
+            try {
+                // Eliminar de producto_categoria primero
+                const responseCategoria = await fetch(PRODUCTO_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'delete', table: 'producto_categoria', data: { producto_id: productId } })
+                });
+                const resultCategoria = await responseCategoria.json();
+                if (resultCategoria.status !== 'ok') {
+                    showWarningMessage('No se pudo eliminar la relación producto-categoría. Se intentará eliminar el producto igualmente.');
+                }
+                // Eliminar el producto
+                const response = await fetch(PRODUCTO_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'delete', table: 'producto', data: { id: productId } })
+                });
+                const resultDelete = await response.json();
+                if (resultDelete.status === 'ok') {
+                    showSuccessMessage('Producto eliminado exitosamente.');
+                    if (typeof renderProductsTable === 'function') {
+                        await renderProductsTable();
+                    }
+                } else {
+                    showErrorMessage(resultDelete.message || 'Error al eliminar el producto.');
+                }
+            } catch (error) {
+                showErrorMessage('Error de conexión al eliminar el producto.');
+            }
+        },
+        onCancel: () => { }
+    });
+    modal.open();
+}
+
 async function openEditProductModal(producto) {
     // Eliminar cualquier modal previa
     const existingModal = document.getElementById('editProductModal');
@@ -572,7 +612,11 @@ async function openEditProductModal(producto) {
     const imgPreviewEdit = document.createElement('img');
     imgPreviewEdit.id = 'imagePreviewEditProduct';
     imgPreviewEdit.className = 'image-preview-edit';
-    imgPreviewEdit.src = `${PRODUCTO_IMG_PATH}${producto.imagen}?v=${new Date().getTime()}`;
+    if (producto.imagen.startsWith('https://')) {
+        imgPreviewEdit.src = producto.imagen;
+    } else {
+        imgPreviewEdit.src = `${PRODUCTO_IMG_PATH}${producto.imagen}?v=${new Date().getTime()}`;
+    }
     imgPreviewEdit.alt = 'Previsualización';
     const labelImageUploadEdit = document.createElement('label');
     labelImageUploadEdit.htmlFor = 'imageUploadEditProduct';

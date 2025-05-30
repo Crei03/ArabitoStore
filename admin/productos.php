@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="../assets/CSS/target-messages.css">
     <link rel="stylesheet" href="../assets/CSS/articulos.css">
-
+    <link rel="stylesheet" href="../assets/CSS/modal.css">
 </head>
 
 <body>
@@ -17,8 +17,7 @@
     });
 
     ?>
-
-
+    <script src="../components/modal.js"></script>
     <script src="../components/target-messages.js"></script>
     <script src="./components/articulo.js"></script>
 </body>
